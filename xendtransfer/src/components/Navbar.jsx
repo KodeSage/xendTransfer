@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
-
 import logo from '../../images/logo.png'
 
 const NavbarItem = ( { title, classProps } ) =>
@@ -30,9 +29,8 @@ export default function Navbar ()
         <li className="bg-[#d65f22] py-2 px-10 mx-4 rounded-full cursor-pointer hover:bg-[#2042BB]">
           Connect
         </li>
-        
       </ul>
-      <div className="flex relative ">
+      <div className="flex relative">
         { toogleMenu
           ?
           <AiOutlineClose fontSize={ 28 } className="text-white md:hidden cursor-pointer" onClick={() =>setToogleMenu(false)} />
