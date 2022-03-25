@@ -8,7 +8,24 @@ export default function Welcome ()
 {
   // const connectWallet = ( e ) = {
   // }
+  const handelSubmit = () =>
+  {
+    
+  }
   const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
+
+  const Input = ( { placeholder, type, name, value } ) =>
+  (
+    <input
+      type={ type }
+      placeholder={ placeholder }
+      step="0.0001"
+      min="0"
+      value={ value }
+      onChange={ () => handlechange( e, name ) }
+      className='my-2 rounded-sm w-full p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism'
+    />  
+  );
 
   return (
     <div className="flex w-full justify-center items-center">
@@ -24,7 +41,7 @@ export default function Welcome ()
           >
             <p className="text-white text-base font-semibold">Connect Wallet </p>
           </button>
-          <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
+          {/* <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
             <div className={ `rounded-tl-2xl ${ commonStyles}`}>
               Reliability
             </div>
@@ -43,16 +60,16 @@ export default function Welcome ()
             <div className={ `rounded-br-2xl ${ commonStyles }` }>
              Immutable
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-col flex-1 items-center justify-start w-full md:mt-0 mt-10">
           <div className="p-3 justify-end items-start flex-col  rounded-xl h-40 sm:w-72 w-full my-5 eth-card white-glassmorpism">
             <div className="flex justify-between flex-col w-full h-full">
               <div className="flex justify-between items-start">
                 <div className="w-10 h-10 rounded-full border-2 border-black flex justify-center items-center">
-                    <SiEthereum fontsize={"20px"} color="smoke" />
+                    <SiEthereum fontSize={"20px"} color="smoke" />
                 </div>
-                <BsInfoCircle fontsize={"21 "} />
+                <BsInfoCircle fontSize={"21 "} />
               </div>
               <div>
                 <p className="text-white font-light text-sm">
@@ -64,8 +81,28 @@ export default function Welcome ()
               </div>
           </div>
           </div>
-          <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism ">
-              
+          <div className="p-12 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism ">
+            <Input placeholder="Address to" name="address to" type="text" handleChange={() =>{}} />
+            <Input placeholder="Amount(ETH)" name="amount" type="number" handleChange={() =>{}} />
+            <Input placeholder="Keyword(GIf)" name="keyword" type="text"  handleChange={() =>{}}/>
+            <Input placeholder="Enter Message" name="message" type="text" handleChange={ () => { } } />
+            
+            <div className="h-[1px] w-full bg-gray-400 my-2 ">
+              { false ? (
+                <Loader />
+              ): (
+                  <button
+                    type="button"
+                    onClick={ handelSubmit }
+                    className=" mt-2 w-full bg-transparent text-white border-[1px] rounded-full p-2 cursor-pointer hover:bg-[#d65f22] hover:border-none"
+                  >
+                    Xend
+
+                  </button>
+              )
+
+              }
+            </div>
           </div>
         </div>
       </div>

@@ -35,8 +35,8 @@ export default function Navbar ()
       <div className="flex relative ">
         { toogleMenu
           ?
-          <AiOutlineClose fontsize={ 28 } className="text-white md:hidden cursor-pointer" onClick={() =>setToogleMenu(false)} />
-          : <HiMenuAlt4 fontsize={ 28 } className="text-white md:hidden cursor-pointer" onClick={() =>setToogleMenu(true)}  />
+          <AiOutlineClose fontSize={ 28 } className="text-white md:hidden cursor-pointer" onClick={() =>setToogleMenu(false)} />
+          : <HiMenuAlt4 fontSize={ 28 } className="text-white md:hidden cursor-pointer" onClick={() =>setToogleMenu(true)}  />
         }
         { toogleMenu && (
           <ul className="z-10 fixed top-0 -right-2 p-2 w-[70vw] h-screen shadow-2xl md:hidden list-none
