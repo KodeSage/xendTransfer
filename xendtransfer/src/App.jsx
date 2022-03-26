@@ -10,14 +10,16 @@ const App = () =>
       <div className="min-h-screen">
         <div className="gradient-bg-welcome">
           <Navbar />
-          <Welcome />
+        <Welcome />
+        
+
         </div>
-        <div className="gradient-bg-services">
-          <Services />
-        </div>
+      <div className="gradient-bg-services">
+        <Services />
         <Transactions />
         <Footer />
-
+        </div>
+        
       </div>
 
     
