@@ -1,7 +1,7 @@
 import React from 'react';
-import { PendingCustormers, ConfirmedCustormers, Navbar, Footer } from '../components';
+import { PendingCustormers, ConfirmedCustormers, Navbar, Footer } from '../../components';
 
-export default function admin() {
+export default function Admin() {
   return (
       <div className="min-h-screen">
           <div className="gradient-bg-welcome">
@@ -14,4 +14,4 @@ export default function admin() {
           </div>
     </div>
   )
-}
+};

@@ -1,35 +1,47 @@
 import { ethers } from "ethers";
 import Tokenabi from "../utilis/migrations/Token.json";
 
-const SomAddress = "0x914B91F03C5D5A74A4eE77b4188646662c9b9F87";
-const JamAddress = "0xb1501eD8F377A14ac863E7F93Bd895faC863A861";
-const HarAddress = "0x259eE39bBB93C3cB6Db1d1d14798a214BB1557b1";
+const SomAddress = "0x5358E54eFEE5e611A8e50cdAD6F419bE51974948";
+const JamAddress = "0x79817fCb51973bA8AeDFF120e8C37243D7A0aD53";
+const HarAddress = "0x341675e9510580e57F13885b19c7F52480024aAa";
 
 const TokensAbi = Tokenabi.abi;
 
 
 export const createSomContract = () =>
-{
-    const provider = new ethers.providers.Web3Provider( ethereum );
-    const signer = provider.getSigner();
-    const transactionsContract = new ethers.Contract( SomAddress, TokensAbi, signer );
+{   
+    if ( typeof window.ethereum !== 'undefined' )
+    {
+        const provider = new ethers.providers.Web3Provider( window.ethereum );
+        const signer = provider.getSigner();
+        const transactionsContract = new ethers.Contract( SomAddress, TokensAbi, signer );
 
-    return transactionsContract;
+        return transactionsContract;
+}
+  
 };
 
 export const createJamContract = () =>
 {
-    const provider = new ethers.providers.Web3Provider( ethereum );
-    const signer = provider.getSigner();
-    const transactionsContract = new ethers.Contract( JamAddress, TokensAbi, signer );
+    if ( typeof window.ethereum !== 'undefined' )
+    {
+        const provider = new ethers.providers.Web3Provider( window.ethereum );
+        const signer = provider.getSigner();
+        const transactionsContract = new ethers.Contract( JamAddress, TokensAbi, signer );
 
-    return transactionsContract;
+        return transactionsContract;
+    }
+  
 };
 export const createHarContract = () =>
 {
-    const provider = new ethers.providers.Web3Provider( ethereum );
-    const signer = provider.getSigner();
-    const transactionsContract = new ethers.Contract( HarAddress, TokensAbi, signer );
+    if ( typeof window.ethereum !== 'undefined' )
+    {
+        const provider = new ethers.providers.Web3Provider( window.ethereum );
+        const signer = provider.getSigner();
+        const transactionsContract = new ethers.Contract( HarAddress, TokensAbi, signer );
 
-    return transactionsContract;
+        return transactionsContract;
+    }
+    
 };

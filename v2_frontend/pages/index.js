@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { Navbar, Welcome, Footer, Service} from "../components";
 
 

@@ -1,17 +1,20 @@
 import { ethers } from "ethers";
+import { useEffect } from "react";
 import Bankabi from "../utilis/migrations/Bank.json";
 
-const { ethereum } = window;
 
-const BankAddress = "0x1EbC7BBFeD353C4a6Dff0c38f317b4DabA616d3e";
+const BankAddress = "0xB7682480A600e7C31a267b5f1eB916A1aA874db4";
 const BankAbi = Bankabi.abi;
+
 
 export const createBankContract = () =>
 {
-    const provider = new ethers.providers.Web3Provider( ethereum );
+    const provider = new ethers.providers.Web3Provider( window.ethereum );
     const signer = provider.getSigner();
     const transactionsContract = new ethers.Contract( BankAddress, BankAbi, signer );
 
     return transactionsContract;
+
+    
 };
 

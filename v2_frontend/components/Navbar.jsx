@@ -3,10 +3,12 @@ import { HiMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 import Image from 'next/image'
 import Link from 'next/link'
-// import logo from '../../images/logo.png'
+import { useRouter } from "next/router";
 
-// import { TransactionContext } from '../contexts/TransactionContext';
-// import { shortenAddress } from '../utilis/shortenAddress';
+ import {  DappContext } from '../contexts/DappContexts';
+import { shortenAddress } from '../utilis/shortenAddress';
+
+
 const NavbarItem = ( { title, classProps } ) =>
 {
     return (
@@ -19,27 +21,53 @@ const NavbarItem = ( { title, classProps } ) =>
 
 
 export default function Navbar ()
-{
-    // const { currentAccount } = useContext( TransactionContext );
+{   
+    const router = useRouter();
+    const { currentAccount, manager } = useContext( DappContext );
     const [ toogleMenu, setToogleMenu ] = useState( false );
+   
+
+    const OnSubmit = () =>
+    {   
+        if ( currentAccount !== manager )
+        {
+            router.push( '/admin/Admin' );
+        } else
+        {
+           
+            router.push( '/' ); 
+        }
+        
+    }
     return (
         <nav className="w-full flex md:justify-center justify-between items-center p-4">
             <div className="md:flex-[0.5] flex-initial justify-center items-center">
                 <Link href="/">
-                    <Image src="/logo.png" alt="logo" width={ 110 }
-                        height={ 40 } className="cursor-pointer" />
+                    <Image src="/logo.png" alt="logo" width={ 174 }
+                        height={ 29 } className="cursor-pointer" />
                 </Link>
 
-                {/* <img src={ logo } alt="logo" className="  cursor-pointer" /> */ }
             </div>
             <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
                 { [ "Home", "Services", "Transactions", "Contact" ].map( ( item, index ) => (
                     <NavbarItem key={ item + index } title={ item } />
                 ) ) }
 
-                <li className="bg-[#d65f22] py-2 px-10 mx-4 rounded-full cursor-pointer hover:bg-[#2042BB]">
-                    Wallet Address
-                </li>
+                { currentAccount ?
+                    <li className="bg-[#d65f22] py-2 px-10 mx-4 rounded-full cursor-pointer hover:bg-[#2042BB]">
+                        { shortenAddress( currentAccount ) }
+                    </li>
+                    :
+                    <li className="bg-[#d65f22] py-2 px-10 mx-4 rounded-full cursor-pointer hover:bg-[#2042BB]">
+                        Wallet Address
+                    </li>
+                }   
+                <button type="submit"
+                    onClick={ OnSubmit }
+                    className="bg-[#d65f22] py-2 px-10 mx-4 rounded-full cursor-pointer hover:bg-[#2042BB]"
+                    >Admin Panel</button>
+                   
+                    
             </ul>
             <div className="flex relative">
                 { toogleMenu
@@ -58,10 +86,16 @@ export default function Navbar ()
                             <NavbarItem key={ item + index } title={ item } classProps="my-2 text-lg" />
                         ) ) }
                         {
+                            currentAccount ?
+                                <li className="bg-[#d65f22] py-2 px-10 mx-4 rounded-full cursor-pointer hover:bg-[#2042BB]">
+                                    { shortenAddress( currentAccount ) }
+                                </li>
+                                :
                                 <li className="bg-[#d65f22] py-2 px-10 mx-4 rounded-full cursor-pointer hover:bg-[#2042BB]">
                                     Wallet Address
                                 </li>
                         }
+                       
                     </ul>
                 )
                 }
