@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Table, Button } from "semantic-ui-react";
-import { ethers } from "ethers";
+
 import { createBankContract } from "../utilis/bank";
 
 import { DappContext } from '../contexts/DappContexts';
