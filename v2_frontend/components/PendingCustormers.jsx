@@ -45,6 +45,7 @@ export default function PendingCustormers ()
         }
       }
       SetPendingCustomers( pendingCustomers );
+      window.location.reload();
     } catch ( error )
     {
       error.message;

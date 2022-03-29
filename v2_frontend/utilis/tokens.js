@@ -1,9 +1,9 @@
 import { ethers } from "ethers";
 import Tokenabi from "../utilis/migrations/Token.json";
 
-const SomAddress = "0x5358E54eFEE5e611A8e50cdAD6F419bE51974948";
-const JamAddress = "0x79817fCb51973bA8AeDFF120e8C37243D7A0aD53";
-const HarAddress = "0x341675e9510580e57F13885b19c7F52480024aAa";
+const SomAddress = "0xbFA3C59fF6e8112e1FF5545713a069E37deDb082";
+const JamAddress = "0xD83460bA948c66e0d9aFB18F03Fa8e3f0E539E20";
+const HarAddress = "0x7F520fBe55ac5936181d57f82699DF57791fcBe4";
 
 const TokensAbi = Tokenabi.abi;
 

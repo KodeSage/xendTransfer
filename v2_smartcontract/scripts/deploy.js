@@ -25,7 +25,7 @@ const main = async () =>
   
   const Som_Token_Contract = await Token.deploy( "SOMToken", "SOM", 18000 );
   const Jam_Token_Contract = await Token.deploy( "JAMToken", "JAM", 18000 );
-  const Har_Token_Contract = await Token.deploy( "JAMToken", "JAM", 18000 );
+  const Har_Token_Contract = await Token.deploy( "HarToken", "HAR", 18000 );
 
 
   await Som_Token_Contract.deployed();

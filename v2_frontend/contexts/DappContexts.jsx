@@ -77,7 +77,8 @@ export const DappProvider = ( { children } ) =>
         const manager = await bank.admin();
         setManager( manager );
     }
-    useEffect( () =>
+
+    useEffect(() =>
     {
 
         if ( typeof window.ethereum !== 'undefined' )
@@ -87,7 +88,7 @@ export const DappProvider = ( { children } ) =>
         }
         
         
-    },  );
+    },[]);
 
     
   return (
