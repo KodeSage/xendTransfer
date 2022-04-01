@@ -1,5 +1,4 @@
 import { ethers } from "ethers";
-import { useEffect } from "react";
 import Bankabi from "../utilis/migrations/Bank.json";
 
 
@@ -9,12 +8,15 @@ const BankAbi = Bankabi.abi;
 
 export const createBankContract = () =>
 {
-    const provider = new ethers.providers.Web3Provider( window.ethereum );
-    const signer = provider.getSigner();
-    const transactionsContract = new ethers.Contract( BankAddress, BankAbi, signer );
+    if ( typeof window.ethereum !== 'undefined' )
+    {
+        const provider = new ethers.providers.Web3Provider( window.ethereum );
+        const signer = provider.getSigner();
+        const transactionsContract = new ethers.Contract( BankAddress, BankAbi, signer );
 
-    return transactionsContract;
-
+        return transactionsContract;
+    }
+   
     
 };
 

@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { createBankContract } from "../../utilis/bank";
 import { PendingCustormers, ConfirmedCustormers, Navbar, Footer } from '../../components';
 
-export default function Admin() {
+export default function Admin ()
+{
+const [bank, setBank] = useState('');
+
+  useEffect( () =>
+  {
+    const bank = createBankContract();
+    setBank(bank);
+    
+  }, [])
+  
   return (
-      <div className="min-h-screen">
-          <div className="gradient-bg-welcome">
+    <div className="min-h-screen gradient-bg-welcome">
               <Navbar />
-              <PendingCustormers />
-              <ConfirmedCustormers />
-          </div>
-          <div className="gradient-bg-services">
+              <PendingCustormers bank={bank} />
+            <ConfirmedCustormers bank={bank}/>
+      <div className="gradient-bg-services">
               <Footer />
           </div>
     </div>

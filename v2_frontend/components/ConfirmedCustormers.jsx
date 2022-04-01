@@ -1,17 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Table } from "semantic-ui-react";
 
-import { createBankContract } from "../utilis/bank";
-
 import { DappContext } from '../contexts/DappContexts';
 
 
-export default function ConfirmedCustormers ()
+export default function ConfirmedCustormers ({bank})
 {
   const { currentAccount } = useContext( DappContext );
   const [ customers, setCustomers ] = useState( [] );
 
-  const bank = createBankContract();
+  
 
   useEffect( () =>
   {
@@ -48,7 +46,7 @@ export default function ConfirmedCustormers ()
     }
 
   }
-  // async function getAcct ()
+
   function renderCustomers ()
   {
     if ( customers.length === 0 )
@@ -72,8 +70,9 @@ export default function ConfirmedCustormers ()
     );
   }
   return (
-    <Table color="blue" fixed singleLine selectable size="large">
-      <Table.Header>
+    <Table color="red" selectable size="large">
+      <Table.Header >
+          <h2>Confirmed Customers Table</h2>
         <Table.Row>
           <Table.HeaderCell>S/N</Table.HeaderCell>
           <Table.HeaderCell>Username</Table.HeaderCell>

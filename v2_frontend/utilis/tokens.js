@@ -17,7 +17,7 @@ export const createSomContract = () =>
         const transactionsContract = new ethers.Contract( SomAddress, TokensAbi, signer );
 
         return transactionsContract;
-}
+    }
   
 };
 

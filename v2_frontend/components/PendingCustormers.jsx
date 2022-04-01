@@ -1,23 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Table, Button } from "semantic-ui-react";
 
-import { createBankContract } from "../utilis/bank";
-
 import { DappContext } from '../contexts/DappContexts';
 
-export default function PendingCustormers ()
+export default function PendingCustormers ({bank})
 {
   const [ pendingCustomers, SetPendingCustomers ] = useState( [] );
- 
-  const [ loading, setLoading ] = useState( false );
-  const [ error, setError ] = useState( false );
-  const bank = createBankContract();
+
   const { currentAccount } = useContext( DappContext );
 
   useEffect( () =>
   {
     getAcct();
-
   }, [] );
 
   async function getAcct ()
@@ -26,7 +20,7 @@ export default function PendingCustormers ()
     {
       
       const pendingCustomers = [];
-      await currentAccount;
+    
       const accountsCount = await bank.getCustomers()
       
       for ( let i = 1; i <= accountsCount; i++ )
@@ -45,7 +39,7 @@ export default function PendingCustormers ()
         }
       }
       SetPendingCustomers( pendingCustomers );
-      window.location.reload();
+      // window.location.reload();
     } catch ( error )
     {
       error.message;
@@ -76,6 +70,7 @@ export default function PendingCustormers ()
       {
         let s = i;
         return (
+          <Table>
           <Table.Row key={ i }>
             <Table.Cell>{ ++s }</Table.Cell>
             <Table.Cell>{ cus.username }</Table.Cell>
@@ -89,7 +84,8 @@ export default function PendingCustormers ()
                 Create Wallet
               </Button>
             </Table.Cell>
-          </Table.Row>
+            </Table.Row>
+          </Table>
         );
       } )
     );
@@ -98,9 +94,9 @@ export default function PendingCustormers ()
 
   return (
     <>
-      <Table>
+      <Table color= 'red'>
         <Table.Header>
-          <h2>PendingCutomersTable</h2>
+          <h2>Pending Customers Table</h2>
           <Table.Row>
             <Table.HeaderCell>S/N</Table.HeaderCell>
             <Table.HeaderCell>Username</Table.HeaderCell>

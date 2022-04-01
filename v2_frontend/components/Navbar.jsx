@@ -29,14 +29,7 @@ export default function Navbar ()
 
     const OnSubmit = () =>
     {   
-        if ( currentAccount !== manager )
-        {
             router.push( '/admin/Admin' );
-        } else
-        {
-           
-            router.push( '/' ); 
-        }
         
     }
     return (
@@ -52,6 +45,11 @@ export default function Navbar ()
                 { [ "Home", "Services", "Transactions", "Contact" ].map( ( item, index ) => (
                     <NavbarItem key={ item + index } title={ item } />
                 ) ) }
+                <Link href="/Tokens">
+                    <li className="mx-4 cursor-pointer">
+                        Tokens
+                    </li>
+                </Link>
 
                 { currentAccount ?
                     <li className="bg-[#d65f22] py-2 px-10 mx-4 rounded-full cursor-pointer hover:bg-[#2042BB]">
@@ -62,11 +60,15 @@ export default function Navbar ()
                         Wallet Address
                     </li>
                 }   
-                <button type="submit"
+               
+                    
+                    < button type="submit"
                     onClick={ OnSubmit }
                     className="bg-[#d65f22] py-2 px-10 mx-4 rounded-full cursor-pointer hover:bg-[#2042BB]"
-                    >Admin Panel</button>
+                >Admin Panel</button>
                    
+                
+                
                     
             </ul>
             <div className="flex relative">
@@ -85,6 +87,11 @@ export default function Navbar ()
                         { [ "Home", "Services", "Transactions", "Contact" ].map( ( item, index ) => (
                             <NavbarItem key={ item + index } title={ item } classProps="my-2 text-lg" />
                         ) ) }
+                        <Link href="/Tokens">
+                            <li className="mx-4 cursor-pointer">
+                                Tokens
+                            </li>
+                        </Link>
                         {
                             currentAccount ?
                                 <li className="bg-[#d65f22] py-2 px-10 mx-4 rounded-full cursor-pointer hover:bg-[#2042BB]">
@@ -95,7 +102,7 @@ export default function Navbar ()
                                     Wallet Address
                                 </li>
                         }
-                       
+                        
                     </ul>
                 )
                 }

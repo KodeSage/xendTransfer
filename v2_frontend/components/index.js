@@ -5,3 +5,4 @@ export { default as Welcome } from './Welcome';
 export { default as Footer } from './Footer';
 export { default as PendingCustormers } from './PendingCustormers';
 export { default as ConfirmedCustormers } from './ConfirmedCustormers';
+export { default as Token } from './Token';

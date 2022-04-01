@@ -1,4 +1,4 @@
-import { Navbar, Welcome, Footer, Service} from "../components";
+import { Navbar, Welcome, Footer, Service, Token} from "../components";
 
 
 export default function Home() {

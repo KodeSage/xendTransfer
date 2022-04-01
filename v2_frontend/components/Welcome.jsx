@@ -1,47 +1,21 @@
 import React, { useContext, useState } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { Loader } from ".";
-import { createBankContract } from "../utilis/bank";
-import { Message } from "semantic-ui-react";
 import { DappContext } from '../contexts/DappContexts';
-import { useRouter } from "next/router";
+
 import Link from 'next/link';
 
 export default function Welcome ()
 {
-  const router = useRouter();
-  const { currentAccount, connectWallet } = useContext( DappContext );
-  const [ isLoading, SetLoading ] = useState( false );
-  const [ user, Setuser ] = useState( '' )
-  const [errorMessage, setErrorMessage ] = useState( '' );
-
-
-  const SetUsers = ( event ) =>
-  {
-    Setuser( event.target.value )
-  }
-
-  const createAccount = async (e) =>
+  
+  const { currentAccount, connectWallet, createAccount, isLoading, errorMessage, SetUsers, user } = useContext( DappContext );
+  
+  const create = (e) =>
   {
     e.preventDefault();
-    const bank = createBankContract();
-    SetLoading( true ); 
-    try
-    { 
-      setErrorMessage( "" );
-     
-      await currentAccount;
-      const transaction = await bank.createAccountRequest( user );
-      await transaction.wait()
-      router.push( `/${ [ currentAccount ] }` );
-      SetLoading( false );
-        
-    } catch(err) {
-      setErrorMessage( err.message );
-      }
+    if ( !user ) return;
 
-    SetLoading( false );
-    setErrorMessage( "" );
+    createAccount();
   }
 
 
@@ -75,7 +49,7 @@ export default function Welcome ()
         </div>
       </div>
       <div className="flex-1 flex flex-col justify-start items-center" >     
-          <form onSubmit={createAccount }>
+          
           <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center white-glassmorphism">
             <input className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm blue-glassmorphism"
               placeholder="Enter UserName" name="addressTo" type="text" value={ user }
@@ -86,17 +60,18 @@ export default function Welcome ()
               ? <Loader />
               : (
                 <button
-                  type="submit"
-                  className=" mt-2 w-full bg-transparent text-white border-[1px] rounded-full p-2 cursor-pointer hover:bg-[#d65f22] hover:border-none"
+                type="button"
+                onClick={ create}
+                className=" mt-2 w-full bg-transparent text-white border-[1px] rounded-full p-2 cursor-pointer hover:bg-[#d65f22] hover:border-none"
                 >
                   Create Account
                 </button>
               ) }
-            {/* <Message header="OOps" content={ errorMessage } error /> */}
-         
-          
+            { errorMessage && 
+            <div className="rounded-sm p-4 bg-red-600 text-white">{ errorMessage } </div>
+           }
+
         </div>
-          </form>
       </div>
     </div>
   )

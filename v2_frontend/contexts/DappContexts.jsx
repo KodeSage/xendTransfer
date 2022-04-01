@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { ethers } from "ethers";
-
-// const { ethereum } = window;
-import { createBankContract } from "../utilis/bank";
+import { createBankContract } from '../utilis/bank';
+import { useRouter } from "next/router";
 
 export const DappContext = React.createContext();
 
 
-
 export const DappProvider = ( { children } ) =>
 {
+    const router = useRouter();
     const [ currentAccount, setCurrentAccount ] = useState( "" );
-    const [ manager, setManager ] = useState( "" );
+    const [ isLoading, SetLoading ] = useState( false );
+    const [ errorMessage, setErrorMessage ] = useState( '' );
+    const [ user, Setuser ] = useState( '' )
+
+
+
+    const SetUsers = ( event ) =>
+    {
+        Setuser( event.target.value )
+    }
+
 
     const checkIfWalletIsConnect = async () =>
     {
@@ -20,8 +28,6 @@ export const DappProvider = ( { children } ) =>
         {
             try
             {
-               
-
                 const accounts = await window.ethereum.request( { method: "eth_accounts" } );
                 console.log( accounts );
 
@@ -32,7 +38,6 @@ export const DappProvider = ( { children } ) =>
                 }
                 else
                 {
-                    alert( "Please connect your wallet." );
                     console.log( "No Accounts found" );
                 }
             } catch ( error )
@@ -42,65 +47,74 @@ export const DappProvider = ( { children } ) =>
                 throw new Error( "No ethereum object" );
             }
         }
-        
 
-    }; 
+
+    };
     const connectWallet = async () =>
     {
-        if ( typeof window.ethereum !== 'undefined' )
-        {
             try
             {
                 if ( !window.ethereum ) return alert( "Please install MetaMask." );
 
                 const accounts = await window.ethereum.request( { method: "eth_requestAccounts", } );
-
                 setCurrentAccount( accounts[ 0 ] );
                 window.location.reload();
+
             } catch ( error )
             {
                 console.log( error );
 
                 throw new Error( "No ethereum object" );
             }
-        }
-       
+
     };
-    // const DisconnectWallet = () =>
-    // {
-    //     setCurrentAccount( undefined );
-    //     // window.location.reload();
-    // }
-    const checkManager = async() =>
+    const createAccount = async () =>
     {
-        const bank = createBankContract();
-        const manager = await bank.admin();
-        setManager( manager );
+        try
+        {
+            if ( window.ethereum )
+            {
+                const bank = createBankContract();
+              
+
+                const transaction = await bank.createAccountRequest(user);
+
+                SetLoading( true );
+                console.log( `Loading - ${ transaction.hash }` );
+                await transaction.wait()
+                console.log( `Success - ${ transaction.hash }` );
+                SetLoading( false );
+                router.push( `/${ [ currentAccount ] }` );
+                
+            } else
+            {
+                console.log( "No ethereum object" );
+            }
+        } catch ( err )
+        {
+            setErrorMessage( err.message );
+        }
     }
 
-    useEffect(() =>
+    useEffect( () =>
     {
+        checkIfWalletIsConnect();
 
-        if ( typeof window.ethereum !== 'undefined' )
-        {
-            checkIfWalletIsConnect();
-            checkManager();
-        }
-        
-        
-    },[]);
+    }, [] );
 
-    
-  return (
-      <DappContext.Provider value={ {
-          
-          currentAccount,
-          connectWallet,
-          manager,
-          
-          
-      }}>
-        {children}
-    </DappContext.Provider>
-  )
+
+    return (
+        <DappContext.Provider value={ {
+            currentAccount,
+            connectWallet,
+            createAccount,
+            isLoading,
+            errorMessage,
+            SetUsers,
+            user
+
+        } }>
+            { children }
+        </DappContext.Provider>
+    )
 }
