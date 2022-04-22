@@ -41,7 +41,12 @@ li {
 }
 .nav_gradient{
 background: rgb(234, 158, 113);
-background: linear-gradient(90deg, rgba(234, 158, 113, 1) 34%, rgba(227, 97, 23, 1) 61%, rgba(42, 67, 176, 1) 97%);
+background: rgb(42,67,176);
+background: linear-gradient(90deg, rgba(42,67,176,1) 5%, rgba(234,158,113,1) 51%, rgba(227,97,23,1) 91%);background: linear-gradient(90deg, rgba(234, 158, 113, 1) 34%, rgba(227, 97, 23, 1) 61%, rgba(42, 67, 176, 1) 97%);
+}
+.token_gradient{
+background: rgb(42, 67, 176);
+background: linear-gradient(90deg, rgba(42, 67, 176, 1) 5%, rgba(234, 158, 113, 1) 51%, rgba(227, 97, 23, 1) 91%);
 }
 .white-glassmorphism {
   background: rgba(255, 255, 255, 0.05);

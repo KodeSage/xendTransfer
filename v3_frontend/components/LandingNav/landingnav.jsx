@@ -11,10 +11,8 @@ export default function LandingNav ()
   return (  
       <div className='Container'>
       <div className='flex items-center justify-between'>
-        
           <Logo />
-
-        <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
+        <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial cursor-pointer">
           <Link href='#home'>
             <li className="text-white mx-4 cursor-pointer md:flex-1 text-xl hover:border-b-2">Home</li>
          </Link> 

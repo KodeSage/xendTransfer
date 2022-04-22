@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        mf: "990px",
+      },
       keyframes: {
         "slide-in": {
           "0%": {

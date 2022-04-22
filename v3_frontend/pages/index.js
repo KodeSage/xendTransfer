@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css';
-import {LandingNav, Logo} from '../components'
+import { LandingNav, Hero, Tokens } from '../components'
 
 export default function Home() {
   return (
@@ -21,7 +21,12 @@ export default function Home() {
       </Head>
         <div className="nav_gradient">
         <LandingNav />
+        <Hero />
       </div>
+      <div>
+        <Tokens />
+      </div>
+      
     </div>
   )
 }
