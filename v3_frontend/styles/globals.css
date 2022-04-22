@@ -8,9 +8,13 @@ html,
 body {
   padding: 0;
   margin: 0;
+background: #4D4993;
   font-family: Blinker, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     scroll-behavior: smooth;
+}
+.white{
+  background-color:white;
 }
 
 a {
@@ -22,7 +26,7 @@ a {
   box-sizing: border-box;
 }
 .Container {
-  padding: 2rem 4rem;
+  padding: 2rem 33rem;
 }
 
 ul,
@@ -55,8 +59,26 @@ background: linear-gradient(90deg, rgba(42, 67, 176, 1) 5%, rgba(234, 158, 113, 
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.animation{
-  transition: 0.4s ease-in-out;
+.hero_image{
+  animation: floatY 2s ease-in-out infinite;;
+}
+@keyframes floatY {
+  0% {
+    transform: translatey(0px);
+  }
+
+
+  50% {
+    transform: translatey(30px);
+
+  }
+
+  100% {
+    transform: translatey(0px);
+  }
+}
+.rotate-360{
+  transform: rotate(360deg);
 }
 
 @media screen and (max-width: 768px) {
@@ -67,6 +89,9 @@ background: linear-gradient(90deg, rgba(42, 67, 176, 1) 5%, rgba(234, 158, 113, 
     border-bottom: none;
     font-weight: bolder;
     padding-bottom: 0.2rem
+  }
+  .xendlogo{
+    display:none;
   }
 }
   

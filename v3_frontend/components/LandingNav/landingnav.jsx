@@ -11,7 +11,7 @@ export default function LandingNav ()
   return (  
       <div className='Container'>
       <div className='flex items-center justify-between'>
-          <Logo />
+        <Logo toogleMenu={ toogleMenu} />
         <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial cursor-pointer">
           <Link href='#home'>
             <li className="text-white mx-4 cursor-pointer md:flex-1 text-xl hover:border-b-2">Home</li>
@@ -24,7 +24,7 @@ export default function LandingNav ()
         </ul>
         <div className="desktop">
           <Link href='getstarted'>
-            <button className="bg-white text-black text-xl font-bold py-2 px-14 rounded-full hover:bg-black hover:text-white">Get Started</button>
+            <button className="bg-white text-black text-xl font-bold py-5 px-14 rounded-full hover:bg-black hover:text-white">Get Started</button>
           </Link>
         </div>
         <div className="mobile-nav flex relative">
