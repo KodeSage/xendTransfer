@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css?family=Blinker:300,400,500,550,700,800");
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Blinker, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.Container {
+  padding: 2rem 4rem;
+}
+
+ul,
+ol {
+  padding: 0px;
+  margin: 0px;
+}
+li:active{
+  border-bottom: 3px solid #e0e0e0;
+  font-weight: bolder;
+  padding-bottom:0.2rem
+}
+
+li {
+  list-style: none;
+}
+.nav_gradient{
+background: rgb(234, 158, 113);
+background: linear-gradient(90deg, rgba(234, 158, 113, 1) 34%, rgba(227, 97, 23, 1) 61%, rgba(42, 67, 176, 1) 97%);
+}
+.white-glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.animation{
+  transition: 0.4s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+  li:active {
+    border-bottom: none;
+    font-weight: bolder;
+    padding-bottom: 0.2rem
+  }
+}
+  
