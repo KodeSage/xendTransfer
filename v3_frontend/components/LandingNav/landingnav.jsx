@@ -24,7 +24,7 @@ export default function LandingNav ()
         </ul>
         <div className="desktop">
           <Link href='getstarted'>
-            <button className="bg-white text-black text-xl font-bold py-5 px-14 rounded-full hover:bg-black hover:text-white">Get Started</button>
+            <button className="bg-[#d65f22] hover:bg-[#3309dd] text-white text-xl font-bold py-5 px-14 rounded-full ">Get Started</button>
           </Link>
         </div>
         <div className="mobile-nav flex relative">
