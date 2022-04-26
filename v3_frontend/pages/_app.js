@@ -4,11 +4,13 @@ import "tailwindcss/tailwind.css";
 
 import '../styles/globals.css';
 
+
 function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <ToastContainer transition={ Zoom } position="top-center" autoClose={3000} />
+      <ToastContainer transition={ Zoom } position="top-center" autoClose={ 3000 } />
+      
       <Component { ...pageProps } />
 
     </>
