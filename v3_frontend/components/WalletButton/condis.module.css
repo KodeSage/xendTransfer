@@ -1,0 +1,15 @@
+.condisborder{
+width: 100%;
+display:block;
+position:relative;
+padding-top: 350px;
+text-align: center;
+height: auto;
+color: white;
+}
+
+.b{
+background: rgb(42, 67, 176);
+padding: 1rem;
+border-radius: 1rem;
+}

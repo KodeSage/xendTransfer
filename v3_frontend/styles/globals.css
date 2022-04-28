@@ -12,6 +12,16 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     scroll-behavior: smooth;
 }
+.gd{
+  height: 100vh;
+  min-height:100vh;
+}
+.ca{
+  background: rgb(42, 67, 176)
+}
+.ca:hover{
+  background: rgb(74, 103, 236)
+}
 .white{
   background-color:white;
 }

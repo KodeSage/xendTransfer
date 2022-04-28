@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { LandingNav, Hero, Tokens, SplashScreen, Services } from '../components'
+import { LandingNav, Hero, Tokens, SplashScreen, Services, Footer } from '../components'
 
 export default function Home ()
 {
@@ -41,6 +41,9 @@ export default function Home ()
             </div>
             <div className="token_gradient">
               <Services />
+            </div>
+            <div className="token_gradient">
+              <Footer />
             </div>
         </div >
       ) }

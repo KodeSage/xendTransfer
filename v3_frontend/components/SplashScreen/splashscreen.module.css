@@ -51,11 +51,11 @@
 }
 
 .splashscreen::before {
-    animation: pulse 2s ease-out infinite;
+    animation: pulse 2s infinite;
 }
 
 .splashscreen::after {
-    animation: pulse 2s 1s ease-out infinite;
+    animation: pulse 2s 1s  infinite;
 }
 
 .splashscreen>img {
@@ -63,8 +63,13 @@
 }
 
 @keyframes pulse {
-    100% {
-        transform: scale(2.5);
-        opacity: '0';
-    }
+0% {
+    opacity: 100;
+    transform: scale(0);
+}
+
+100% {
+    transform: scale(2.5);
+    opacity: 0;
+}
 }

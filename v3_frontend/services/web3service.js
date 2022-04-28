@@ -1,20 +1,21 @@
 import { ethers } from "ethers";
+import { toast } from "react-toastify";
 
 export function hasEthereum ()
 {
-    return window.ethereum ? true : false;    // Checks if Window has Ethereum Injected
+    return window.ethereum ? true : false;
 }
 
 export const connectToMetaMask = async ( setError ) =>
-{   // Connect to MetaMask
+{
     try
     {
         if ( !hasEthereum() ) return false;
 
-        const address = await window.ethereum.request( {
+        const addresses = await window.ethereum.request( {
             method: "eth_requestAccounts",
         } );
-        return address[ 0 ];  //Return Address 
+        return addresses[ 0 ];
     } catch ( error )
     {
         console.log( error );
@@ -22,7 +23,6 @@ export const connectToMetaMask = async ( setError ) =>
         return false;
     }
 };
-
 
 export function getActiveWallet ()
 {
