@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 
-import { LandingNav, Hero, Tokens, SplashScreen, ConnectButton } from '../components';
+import { SplashScreen, ConnectButton } from '../components';
 import { useAppContext } from "../contexts/appContext";
 
 export default function getstarted ()
