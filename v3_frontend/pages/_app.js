@@ -1,4 +1,3 @@
-// require( 'dotenv' ).config();
 import { Mainnet, DAppProvider, Ropsten, Kovan, Rinkeby } from '@usedapp/core'
 import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
