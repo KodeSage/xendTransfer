@@ -6,4 +6,4 @@ export { default as Tokens } from "./Tokens/tokens";
 export { default as SplashScreen } from "./SplashScreen/splashscreen";
 export { default as Services } from "./Services/services";
 export { default as Footer } from "./Footer/footer";
-export { default as ConnectButton } from "./WalletButton/connectwallet";
+export { default as ConnectButton } from "./walletButton/connectwallet";
