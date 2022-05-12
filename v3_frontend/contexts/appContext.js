@@ -77,7 +77,7 @@ export function AppProvider ( { children } )
         {
             const provider = await web3Modal.connect()
             await activate( provider );
-            // localStorage.setItem( "wallet-connection", true );
+            localStorage.setItem( "wallet-connection", true );
             toast.success("Connection was Successful")
             setActivateError( '' )
         } catch ( error )

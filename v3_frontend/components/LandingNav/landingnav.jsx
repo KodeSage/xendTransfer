@@ -1,64 +1,76 @@
 import React, { useState} from 'react';
 import { Logo } from "../../components";
-import { HiMenuAlt4 } from 'react-icons/hi';
+
 import { AiOutlineClose } from 'react-icons/ai';
+import styles from './landingnav.module.css'; "";
 import Link from 'next/link';
+
 
 
 export default function LandingNav ()
 { 
   const [ toogleMenu, setToogleMenu ] = useState( false );
-  return (  
-      <div className='Container'>
-      <div className='flex items-center justify-between'>
-        <Logo toogleMenu={ toogleMenu} />
-        <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial cursor-pointer">
-          <Link href='#home'>
-            <li className="text-white mx-4 cursor-pointer md:flex-1 text-xl hover:border-b-2">Home</li>
-         </Link> 
-          <Link href='#tokens'>
-              <li className="text-white mx-4 cursor-pointer md:flex-1 text-xl hover:border-b-2">Tokens</li>
-         </Link>
-            <Link href='#services'><li className="text-white mx-4 cursor-pointer md:flex-1 text-xl hover:border-b-2">Services</li></Link> 
-          <Link href='#contacts'><li className="text-white mx-4 cursor-pointer md:flex-1 text-xl hover:border-b-2">Contacts</li></Link> 
-        </ul>
-        <div className="desktop">
-          <Link href='getstarted'>
-            <button className="bg-[#d65f22] hover:bg-[#3309dd] text-white text-xl font-bold py-5 px-14 rounded-full ">Get Started</button>
-          </Link>
-        </div>
-        <div className="mobile-nav flex relative">
-          { toogleMenu
-            ?
-            <AiOutlineClose fontSize={ 28 } className="text-white md:hidden cursor-pointer" onClick={ () => setToogleMenu( false ) } />
-            : <HiMenuAlt4 fontSize={ 28 } className="text-white md:hidden cursor-pointer" onClick={ () => setToogleMenu( true ) } />
-          }
-          { toogleMenu && (
-            <div className="z-10 fixed top-0 -right-2 p-2 w-[70vw] h-screen shadow-2xl md:hidden white-glassmorphism animation">
-              <ul>
-                <li className="text-xl w-full my-2">
-                  <AiOutlineClose onClick={ () => setToogleMenu( false ) } className="text-white cursor-pointer" fontSize={ 34 } />
-                </li>
-                <Link href='#home'>
-            <li className="text-white mx-4 cursor-pointer md:flex-1 text-xl text-center p-4">Home</li>
-         </Link> 
-          <Link href='#tokens'>
-                  <li className="text-white mx-4 cursor-pointer md:flex-1 text-xl text-center p-4">Tokens</li>
-         </Link>
-                <Link href='#services'><li className="text-white mx-4 cursor-pointer md:flex-1 text-xl text-center p-4 ">Services</li></Link> 
-                <Link href='#contacts'><li className="text-white mx-4 cursor-pointer md:flex-1 text-xl text-center p-4">Contacts</li></Link> 
 
-            </ul>
-            <div className="text-center">
-                <Link href='getstarted'>
-                  <button className="bg-white text-black text-xl font-bold py-2 px-14 rounded-full hover:bg-black hover:text-white">Get Started</button>
-                </Link>
-              </div>
-            </div>
-          )
-          }
+  const handleOpenMenu = () =>
+  {
+    setToogleMenu( true );
+  }
+  const handleCloseMenu = () =>
+  {
+    setToogleMenu( false );
+  }
+  return ( 
+    
+    <nav className={ styles.nav }>
+      <div className="body_container">
+        <div className={ styles.nav_lg }>
+          <div >
+            <img src="./desktoplogo.png" className="h-11"/>
+          </div>
+          <ul className={ styles.nav_links}>
+            <li className={ styles.nav_li }>
+               <Link href='#home'>
+                    Home
+                </Link> 
+            </li>
+            <li className={ styles.nav_li }>
+              <Link href='#tokens'>
+                Tokens
+              </Link>
+            </li>
+            <li className={ styles.nav_li }>
+              <Link href='#services'>
+                Services
+              </Link>
+            </li>
+            <li className={ styles.nav_li }>
+              <Link href='#contacts'>
+                Contacts
+              </Link>
+            </li>
+          </ul>
+          <div className="desktop">
+          <Link href='getstarted'>
+            <button className={ styles.nav_button}>Get Started</button>
+          </Link>
+         </div>
         </div>
-       </div>
-    </div>
+      
+        <div className={ styles.nav_sm}>
+          <img src="./mobile_logo.png" className="h-12" />
+          <img src="./mobile_block.png" className="h-7" onClick={ handleOpenMenu} />
+        </div>
+      </div>
+      <div className={ `${ styles.sidebar } ${ toogleMenu ? styles.sideopen : styles.sideclose }` }>
+        <div className="body_container">
+          <div className={ styles.sidebar_header }>
+            <img src="./mobile_logo.png" className="h-12" />
+            <img src="./close.svg" className={ styles.sideclose_svg } onClick={ handleCloseMenu } />
+          </div>
+        </div>
+       
+      </div>
+      </nav>
+   
   );
 }

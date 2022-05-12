@@ -2,19 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css?family=Blinker:300,400,500,550,700,800");
-
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Blinker, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+font-family: 'Fira Sans', sans-serif;
     scroll-behavior: smooth;
 }
 .gd{
   height: 100vh;
   min-height:100vh;
+}
+.body_container{
+  max-width: 1400px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 10px 40px;
+}
+.body_img{
+  background: url("../public/xendbackground.png");
+  background-position: top;
+  background-repeat: repeat-y;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+
 }
 .ca{
   background: rgb(42, 67, 176)
@@ -34,9 +48,10 @@ a {
 * {
   box-sizing: border-box;
 }
-.Container {
+/* .Container {
   padding: 2rem 4rem;
-}
+  max-width: 1400px;
+} */
 
 ul,
 ol {
