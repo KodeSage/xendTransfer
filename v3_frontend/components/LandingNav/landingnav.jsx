@@ -24,30 +24,30 @@ export default function LandingNav ()
     <nav className={ styles.nav }>
       <div className="body_container">
         <div className={ styles.nav_lg }>
-          <div >
+          <Link href='/' >
             <img src="./desktoplogo.png" className="h-11"/>
-          </div>
+          </Link>
           <ul className={ styles.nav_links}>
-            <li className={ styles.nav_li }>
                <Link href='#home'>
+            <li className={ styles.nav_li }>
                     Home
+            </li>
                 </Link> 
-            </li>
-            <li className={ styles.nav_li }>
               <Link href='#tokens'>
+            <li className={ styles.nav_li }>
                 Tokens
-              </Link>
             </li>
-            <li className={ styles.nav_li }>
+              </Link>
               <Link href='#services'>
-                Services
-              </Link>
-            </li>
             <li className={ styles.nav_li }>
-              <Link href='#contacts'>
-                Contacts
-              </Link>
+                Services
             </li>
+              </Link>
+              <Link href='#contacts'>
+            <li className={ styles.nav_li }>
+                Contacts
+            </li>
+              </Link>
           </ul>
           <div className="desktop">
           <Link href='getstarted'>
@@ -61,15 +61,47 @@ export default function LandingNav ()
           <img src="./mobile_block.png" className="h-7" onClick={ handleOpenMenu} />
         </div>
       </div>
-      <div className={ `${ styles.sidebar } ${ toogleMenu ? styles.sideopen : styles.sideclose }` }>
+      {
+        toogleMenu && (
+          <div className={ `${ styles.sider } ${ toogleMenu ? styles.sideopen : styles.sideclose }` }>
+            <div className={ styles.sidebar }>
         <div className="body_container">
           <div className={ styles.sidebar_header }>
             <img src="./mobile_logo.png" className="h-12" />
             <img src="./close.svg" className={ styles.sideclose_svg } onClick={ handleCloseMenu } />
           </div>
+              <ul className={ styles.sideul } onClick={ handleCloseMenu }>
+                  <Link href='#home'>
+                <li className={ styles.side_li}>
+                    Home
+                </li>
+                  </Link>
+                  <Link href='#tokens'>
+                <li className={styles.side_li }>
+                    Tokens
+                </li>
+                  </Link>
+                  <Link href='#services'>
+                <li className={styles.side_li }>
+                    Services
+                </li>
+                  </Link>
+                  <Link href='#contacts'>
+                <li className={styles.side_li }>
+                    Contacts
+                </li>
+                  </Link>
+              </ul>
+              <Link href='getstarted'>
+                <button className={ styles.sidebutton }>
+                    Get Started
+                </button>
+              </Link>
         </div>
-       
-      </div>
+        </div>
+        </div>
+        )
+      }
       </nav>
    
   );

@@ -7,7 +7,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-font-family: 'Fira Sans', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
     scroll-behavior: smooth;
 }
 .gd{
@@ -30,6 +30,14 @@ font-family: 'Fira Sans', sans-serif;
   overflow-x: hidden;
 
 }
+.footer_img {
+  background: url("../public/footer.png");
+  background-size: cover;
+  width: 100%;
+}
+footer{
+  padding-bottom: 2rem;
+}
 .ca{
   background: rgb(42, 67, 176)
 }
@@ -48,10 +56,6 @@ a {
 * {
   box-sizing: border-box;
 }
-/* .Container {
-  padding: 2rem 4rem;
-  max-width: 1400px;
-} */
 
 ul,
 ol {
@@ -61,7 +65,12 @@ ol {
 li:active{
   border-bottom: 3px solid #e0e0e0;
   font-weight: bolder;
-  padding-bottom:0.2rem
+  padding-bottom:0.2rem;
+  background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 
 li {
@@ -110,7 +119,7 @@ background: linear-gradient(90deg, rgba(42, 67, 176, 1) 5%, rgba(234, 158, 113, 
 
 
   50% {
-    transform: translatey(30px);
+    transform: translatey(8px);
 
   }
 

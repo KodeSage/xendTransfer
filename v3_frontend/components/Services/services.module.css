@@ -1,0 +1,85 @@
+.main{
+    margin-top: 8rem;
+    overflow: hidden;
+    margin-bottom: 6rem;
+}
+
+.servicesmain {
+    display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 6rem;
+}
+.services_h2{
+    font-weight: 600;
+    font-size: 64px;
+     line-height: 77px;
+    background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%); 
+    -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+}
+.services_p{
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 19px;
+    color: #333333;
+}
+.card{
+    background: #fff;
+    z-index:999;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display:flex;
+    cursor: pointer;
+    width: 100%;
+    gap: 1.5rem;
+    align-items: top;
+}
+.card_showcasetext h2{
+    font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 19px;
+    background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        padding-bottom: 0.7rem;
+}
+.card_showcasetext p{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #333333;
+}
+.card_icon{
+width: 2rem;
+height: 1.5rem;
+}
+
+@media screen and (max-width: 767.99px) {
+.servicesmain{
+    flex-direction: column;
+}
+.card_icon {
+    width: 2.5rem;
+    height: 1.5rem;
+}
+.services_h2{
+    font-weight: 600;
+        font-size: 36px;
+        line-height: 43px;
+        text-align: center;
+}
+.services_p{
+    font-weight: 400;
+        font-size: 16px;
+        line-height: 17px;
+        text-align: center;
+}
+}

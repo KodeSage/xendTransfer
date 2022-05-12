@@ -27,29 +27,30 @@ export default function Home ()
         ></meta>
         <title>Xend Transfer Wallet | Home</title>
       </Head>
-      {/* { loading ? (
+      { loading ? (
         <SplashScreen />
       ) : (
           <div className="body_img">
-          <div className="nav_gradient">
             <LandingNav />
-              <Hero />
-
-          </div>
+            <Hero />
             <Tokens />
-            
-            <div className="token_gradient">
-              <Services />
-            </div>
-            <div className="token_gradient">
+            <Services />
+            <div className="footer_img">
               <Footer />
             </div>
-        </div >
-      ) } */}
-      <div className="body_img">
+
+          </div>
+      ) }
+      {/* <div className="body_img">
         <LandingNav />
         <Hero />
-      </div>
+        <Tokens />
+        <Services />
+        <div className="footer_img">
+          <Footer />
+        </div>
+        
+      </div> */}
       
     </div>
   )
