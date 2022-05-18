@@ -141,7 +141,7 @@ background: linear-gradient(90deg, #FF6600 0%, #2042B8 100%);
 }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1000px) {
     .nav_lg{
         display: none;
  }
