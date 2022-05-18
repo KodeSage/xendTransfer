@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SplashScreen, ConnectButton, DisconnectButton, Logo, Connectform, LoginForm } from '../components';
+import { SplashScreen, DisconnectWallet, Logo, Connectform, LoginForm } from '../components';
 import { useAppContext } from "../contexts/appContext";
 
 export default function Login ()
@@ -19,7 +19,7 @@ export default function Login ()
           <Logo />
           <div>
             { account &&
-              <DisconnectButton />
+              <DisconnectWallet />
             }
           </div>
         </div>
