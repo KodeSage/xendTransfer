@@ -3,10 +3,10 @@ background: rgba(225, 255, 255, 0.05);
 backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(20px);
 border: 1px solid rgba(235, 235, 255, 0.1);
-height: 4rem;
+height: 3rem;
 position: fixed;
 top: 0;
-min-width: 100%;
+width: 100%;
 z-index: 400;
 cursor: pointer;
 
@@ -135,13 +135,13 @@ background: linear-gradient(90deg, #FF6600 0%, #2042B8 100%);
         
 }
 
-@media screen and (max-width: 1440px) {
+/* @media screen and (max-width: 1440px) {
     .nav .nav_lg {
     gap: 35%;
 }
-}
+} */
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 960px) {
     .nav_lg{
         display: none;
  }
