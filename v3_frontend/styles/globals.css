@@ -23,9 +23,9 @@ body {
 .body_img{
   background: url("../public/xendbackground.png");
   background-position: top;
-  background-repeat: repeat-y;
-  background-size: cover;
-  width: 100%;
+  /* background-repeat: repeat-y;
+  background-size: cover; */
+  width: 100vh;
   height: 100vh;
   overflow-x: hidden;
 
