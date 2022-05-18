@@ -5,9 +5,9 @@ backdrop-filter: blur(5px);
 border: 1px solid rgba(235, 235, 255, 0.1);
 height: 4rem;
 position: fixed;
- top: 0;
-width: 100%;
-z-index: 500;
+top: 0;
+min-width: 100%;
+z-index: 400;
 cursor: pointer;
 
 }
@@ -20,10 +20,10 @@ cursor: pointer;
 .nav_button{
     padding: 17px 43px;
     background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
-     border-radius: 100px;
+    border-radius: 50px;
     font-weight: bold;
     font-size: 14px;
-    line-height: 17px;
+    line-height: 15px;
     color: #FFFFFF;
 }
 .nav_button:hover,
@@ -141,7 +141,7 @@ background: linear-gradient(90deg, #FF6600 0%, #2042B8 100%);
 }
 }
 
-@media screen and (max-width: 767.99px) {
+@media screen and (max-width: 1440px) {
     .nav_lg{
         display: none;
  }

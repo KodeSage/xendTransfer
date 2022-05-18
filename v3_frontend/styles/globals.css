@@ -16,9 +16,9 @@ body {
 }
 .body_container{
   max-width: 1400px;
-    margin: 0 auto;
-    overflow: auto;
-    padding: 10px 40px;
+  margin: 0 auto;
+  /* overflow: auto; */
+  padding: 10px 40px;
 }
 .body_img{
   background: url("../public/xendbackground.png");
