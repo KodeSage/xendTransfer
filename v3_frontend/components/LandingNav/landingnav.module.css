@@ -6,7 +6,7 @@ border: 1px solid rgba(235, 235, 255, 0.1);
 height: 4rem;
 position: fixed;
  top: 0;
-    width: 100%;
+width: 100%;
 z-index: 500;
 cursor: pointer;
 
@@ -18,7 +18,7 @@ cursor: pointer;
     align-items: center;
 }
 .nav_button{
-    padding: 17px 53px;
+    padding: 17px 43px;
     background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
      border-radius: 100px;
     font-weight: bold;
@@ -34,7 +34,7 @@ cursor: pointer;
 .nav_links{
     display:flex;
    justify-content:space-between;
-    gap: 2rem;
+    gap: 1rem;
     font-weight: 600;
 }
 .nav_li :hover,
