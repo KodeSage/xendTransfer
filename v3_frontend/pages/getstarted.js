@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 
-import { SplashScreen, DisconnectButton, Logo, Connectform, SignupForm } from '../components';
+import { SplashScreen, DisconnectWallet, Logo, Connectform, SignupForm } from '../components';
 import { useAppContext } from "../contexts/appContext";
 
 export default function getstarted ()
@@ -21,7 +21,7 @@ export default function getstarted ()
                     <Logo />
                     <div>
                         { account && 
-                         <DisconnectButton />
+                            <DisconnectWallet />
                         }  
                     </div>
                 </div>

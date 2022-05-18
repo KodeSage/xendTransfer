@@ -1,6 +1,6 @@
 import React from 'react';
 import formstyle from './forms.module.css';
-import { ConnectButton } from '../../components';
+import { ConnectWallet } from '../../components';
 
 export default function Connectform() {
   return (
@@ -12,7 +12,7 @@ export default function Connectform() {
             <h2 className={ formstyle.h2 }>
               Connect different wallet to continue
             </h2>
-            <ConnectButton />
+            <ConnectWallet />
           </div>
         </div>
       </div>

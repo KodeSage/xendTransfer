@@ -5,7 +5,7 @@ import { BiLock } from 'react-icons/bi';
 import { useAppContext } from "../../contexts/appContext";
 
 
-export default function ConnectWallet ()
+export default function ConnectWallet()
 {
     const {activateProvider} = useAppContext();
 

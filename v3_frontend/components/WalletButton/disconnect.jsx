@@ -3,7 +3,7 @@ import { useAppContext } from "../../contexts/appContext";
 import styles from './condis.module.css';
 import { BiLock } from 'react-icons/bi';
 
-export default function DisconnectWallet ()
+export default function DisconnectWallet()
 {
   const { onDisconnect } = useAppContext();
 
