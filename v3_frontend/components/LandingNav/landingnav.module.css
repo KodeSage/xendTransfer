@@ -1,15 +1,18 @@
 .nav{
 background: rgba(225, 255, 255, 0.05);
+border: 1px solid rgba(235, 235, 255, 0.1);
 backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(20px);
-border: 1px solid rgba(235, 235, 255, 0.1);
-height: 3rem;
 position: fixed;
+height: 4rem;
 top: 0;
-width: 90%;
 z-index: 400;
 cursor: pointer;
-
+width: 100%;
+}
+.nav_container{
+width: 95%;
+   
 }
 
 .nav_lg{

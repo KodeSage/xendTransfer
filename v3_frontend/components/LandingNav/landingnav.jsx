@@ -22,7 +22,11 @@ export default function LandingNav ()
   return ( 
     
     <nav className={ styles.nav }>
+         
       <div className="body_container">
+        <div className={ styles.nav_container }>
+
+        
         <div className={ styles.nav_lg }>
           <Link href='/' >
             <img src="./desktoplogo.png" className="h-11"/>
@@ -53,7 +57,8 @@ export default function LandingNav ()
           <Link href='login'>
             <button className={ styles.nav_button}>Sign In</button>
           </Link>
-         </div>
+            </div>
+          </div> 
         </div>
       
         <div className={ styles.nav_sm}>
