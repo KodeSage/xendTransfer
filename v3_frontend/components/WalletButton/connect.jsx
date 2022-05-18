@@ -19,10 +19,9 @@ export default function ConnectWallet()
            <span className="text-xl">
             <BiLock size={ 30 } />
           </span>
-              {/* <BiLock size={ 40 }/> */}
+          
 
           </button>
     </div>
   )
 }
-//  flex flex - row justify - center items - center gap - 5 cursor - pointer
