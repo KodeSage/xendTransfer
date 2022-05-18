@@ -1,6 +1,6 @@
 .main{
     margin-top: 8rem;
-    overflow: hidden;
+    overflow-y: hidden;
     margin-bottom: 6rem;
 }
 
@@ -58,7 +58,7 @@
         color: #333333;
 }
 .card_icon{
-width: 2rem;
+width: 1.8rem;
 height: 1.5rem;
 }
 

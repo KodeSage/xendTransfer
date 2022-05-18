@@ -50,8 +50,8 @@ export default function LandingNav ()
               </Link>
           </ul>
           <div className="desktop">
-          <Link href='getstarted'>
-            <button className={ styles.nav_button}>Get Started</button>
+          <Link href='login'>
+            <button className={ styles.nav_button}>Sign In</button>
           </Link>
          </div>
         </div>
@@ -92,9 +92,9 @@ export default function LandingNav ()
                 </li>
                   </Link>
               </ul>
-              <Link href='getstarted'>
+                <Link href='login'>
                 <button className={ styles.sidebutton }>
-                    Get Started
+                    Sign In
                 </button>
               </Link>
         </div>

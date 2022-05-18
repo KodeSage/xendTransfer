@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 
-import { SplashScreen, ConnectButton } from '../components';
+import { SplashScreen, DisconnectButton, Logo, Connectform, SignupForm } from '../components';
 import { useAppContext } from "../contexts/appContext";
 
 export default function getstarted ()
@@ -14,12 +14,31 @@ export default function getstarted ()
         setTimeout( () => setLoading( false ), 6000 );
     } );
     return (
-        <div>
-            { loading ? ( <SplashScreen /> ) : (
-               
-                <div className="token_gradient gd">
-                    { account ? (
-                        <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+
+        <div className="body_img">
+            <div className="body_container">
+                <div className="flex justify-between">
+                    <Logo />
+                    <div>
+                        { account && 
+                         <DisconnectButton />
+                        }  
+                    </div>
+                </div>
+                { account ? (
+                    <SignupForm />
+                ) : (
+                    <Connectform />
+                )
+                }
+
+            </div>
+            
+          
+    
+             {/* { account ? (
+                <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+                    <DisconnectButton />
                             <div className="max-w-md w-full space-y-8 white-glassmorphism hover:shadow-xl p-14">
                                 <div>
 
@@ -57,7 +76,7 @@ export default function getstarted ()
                                             className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ca focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                         >
                                             <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                                                {/* <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" /> */ }
+                                                 <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
                                             </span>
                                             Sign up to the blockchain
                                         </button>
@@ -67,11 +86,11 @@ export default function getstarted ()
                         </div>
                     ) : (
                             <ConnectButton /> 
-                    )}
-                  
-                </div>
-            )}
+            )
+            } */}
+            
         </div>
+
     );
 
 

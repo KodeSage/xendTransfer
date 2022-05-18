@@ -11,12 +11,14 @@ export default function ConnectWallet ()
 
 
   return (
-      <div className={ `${ styles.condisborder } ` }>
-          
+      <div>
           <button
               onClick={ activateProvider }
-              className={ `${ styles.b } `  } >
-              <span className="text-xl">Connect</span>
+            className={styles.walletbg} >
+             Connect wallet
+           <span className="text-xl">
+            <BiLock size={ 30 } />
+          </span>
               {/* <BiLock size={ 40 }/> */}
 
           </button>

@@ -1,8 +1,8 @@
 .nav{
-background: rgba(255, 255, 255, 0.05);
+background: rgba(225, 255, 255, 0.05);
 backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(20px);
-border: 1px solid rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(235, 235, 255, 0.1);
 height: 4rem;
 position: fixed;
  top: 0;
@@ -40,7 +40,14 @@ cursor: pointer;
 .nav_li :hover,
 .nav_li :active
 {
-background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
+background: linear-gradient(90deg, #083bf3 0%, #dadada 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+.nav_li{
+background: linear-gradient(90deg, #FF6600 0%, #2042B8 100%); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -102,13 +109,18 @@ background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
     flex-direction: column;
     margin: 1.3rem 1.3rem 0 0;
 }
+
+.side_li{
+   
+}
+
 .side_li:hover,
 .side_li:active{
     background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
 }
 .sidebutton{
         margin-top: 1.3rem;

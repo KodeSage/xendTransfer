@@ -27,25 +27,26 @@ export default function Tokens() {
       <div id="tokens">
           <div className={ tokens_style.tokenhead}>
               <div className="body_container">  
-                  <Fade bottom>
+                  <Fade top>
                       <h1 className={ tokens_style.tokens_h1 }>Tokens</h1>
                   </Fade>
                   <div className="grid grid-cols-1 sm:grid-cols-3 cursor-pointer">
-                      <Fade bottom>
+                      <Fade top>
                           <TokenCard name="SomToken"
                               images="./somtokenimage.png"
                               address="0xbFA3C59fF6e8112e1FF5545713a069E37deDb082"
                               symbol="SOM"
                           />
                       </Fade>
-                      <Fade bottom>
+                      <Fade top>
                           <TokenCard name="HarToken"
                               images="./hartokenimage.png"
                               address="0x7F520fBe55ac5936181d57f82699DF57791fcBe4"
                               symbol="HAR"
                           />
                       </Fade>
-                      <Fade bottom>
+            
+                      <Fade top>
                           <TokenCard
                               name="JamToken"
                               images="./somtokenimage.png"

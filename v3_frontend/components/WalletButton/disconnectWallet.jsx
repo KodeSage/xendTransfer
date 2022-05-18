@@ -1,15 +1,22 @@
 import React from 'react';
 import { useAppContext } from "../../contexts/appContext";
-
+import styles from './condis.module.css';
+import { BiLock } from 'react-icons/bi';
 export default function DisconnectWallet ()
 {
-    const { handleWalletDisconnect } = useAppContext();
+  const { onDisconnect } = useAppContext();
 
     const handleDisconnect = () =>
     {
-        handleWalletDisconnect();
+      onDisconnect();
     };
   return (
-    <div>D</div>
+    <div>
+      <button
+        onClick={ handleDisconnect }
+        className={ styles.walletbg } >
+        Disconnect
+      </button>
+    </div>
   )
 }

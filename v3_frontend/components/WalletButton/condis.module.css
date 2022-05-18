@@ -1,15 +1,16 @@
-.condisborder{
-width: 100%;
-display:block;
-position:relative;
-padding-top: 350px;
-text-align: center;
-height: auto;
-color: white;
+.walletbg{
+    padding: 17px 23px;
+        background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
+        border-radius: 100px;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 17px;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
 }
-
-.b{
-background: rgb(42, 67, 176);
-padding: 1rem;
-border-radius: 1rem;
+.walletbg svg{
+    font-weight: bolder;
+    color: #FFFFFF;
 }

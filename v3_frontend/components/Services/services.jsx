@@ -26,7 +26,7 @@ export default function Services() {
           <div className={services_style.main}>
               <div className="body_container">
                   <div className={ services_style.servicesmain }>
-                      <Fade bottom className="overflow-hidden">
+                      <Fade left className="overflow-hidden">
                           <div className={ services_style.servicestexts }>
                               <h2 className={ services_style.services_h2 }>Services that we continue to improve</h2>
                               <p className={ services_style.services_p }>
@@ -35,27 +35,27 @@ export default function Services() {
                       </Fade>
                       
                       <div className={ services_style.showcase }>
-                          <Fade bottom className="overflow-hidden">
+                      
                               <ServiceCard
                                   title="Security gurantee"
                                   icon="./shield.png"
                                   subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
                               />
-                          </Fade>
-                          <Fade bottom className="overflow-hidden">
+                       
+                      
                               <ServiceCard
-                                  title="Fastest transactions"
+                              title="Savings"
                                   icon="./dollar.png"
-                                  subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
+                              subtitle="Instant payout into your crypto wallet. "
                               />
-                          </Fade>
-                          <Fade bottom className="overflow-hidden">
+                       
+                       
                               <ServiceCard
-                                  title="Best exchange rates"
-                                  icon="./time.png"
-                                  subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
+                              title="Fastest transactions"
+                              icon="./time.png"
+                              subtitle="You can use your wallet for saving ether and our tokens"
                               /> 
-                          </Fade>
+                         
                           
                       </div>
                 </div>

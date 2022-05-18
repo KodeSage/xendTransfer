@@ -1,0 +1,96 @@
+.bg{
+    padding: 1px;
+    background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
+    border-radius: 10px;
+}
+.form{
+background: url("../../public/xendbackground.png");
+border-radius: 10px;
+display:flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 2rem;
+padding: 2rem;
+}
+
+.img{
+    width: 200px; 
+    height: 200px;
+}
+.h2{
+    font-size: 18px;
+    line-height: 19px;
+        background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+}
+
+.fwhite{
+    background: url("../../public/xendbackground.png");
+    border-radius: 10px;
+    padding: 1px;
+}
+.inputs{
+    display:flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem;
+}
+.inputs input{
+    width: 100%;
+    padding: 18px;
+    background: #ffff;
+    border-radius: 10px;
+}
+.inputs input:focus{
+    outline: none;
+}
+.eye_icon{
+    cursor: pointer;
+    padding: 18px;
+    background: #ffff;
+    border-radius: 10px;
+}
+.button{
+    padding: 10px;
+    background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
+    border-radius: 10px;
+    font-weight: bold;
+    color: #ffff;
+}
+.h3{
+    text-align: center;
+    margin-top:0.5rem;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #2042B8 0%, #FF6600 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+}
+.button:hover{
+    opacity: 0.8;
+}
+.b_h2{
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+}
+.b_h2:hover{
+    color: #ffff;
+}
+@media screen and (max-width: 767.99px) {
+.h2{
+    font-size: 16px;
+    line-height: 19px;
+}
+.h3{
+    font-size: 1rem;
+}
+}
