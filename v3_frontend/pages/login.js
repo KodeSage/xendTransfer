@@ -13,25 +13,32 @@ export default function Login ()
   } );
 
   return (
-    <div className="body_img">
-      <div className="body_container">
-        <div className="flex justify-between">
-          <Logo />
-          <div>
-            { account &&
-              <DisconnectWallet />
+    <>
+       { loading ?
+                <SplashScreen />
+        :
+        <div className="body_img">
+          <div className="body_container">
+            <div className="flex justify-between">
+              <Logo />
+              <div>
+                { account &&
+                  <DisconnectWallet />
+                }
+              </div>
+            </div>
+            { account ? (
+              <LoginForm />
+            ) : (
+              <Connectform />
+            )
             }
+
+
           </div>
         </div>
-        { account ? (
-          <LoginForm />
-        ) : (
-            <Connectform />
-          )
-        }
-      
-
-      </div>
-    </div>
+       }
+    </>
+    
   )
 }

@@ -26,7 +26,7 @@ export default function Home ()
         ></meta>
         <title>Xend Transfer Wallet | Home</title>
       </Head>
-      {/* { loading ? (
+      { loading ? (
         <SplashScreen />
       ) : (
           <div className="body_img">
@@ -39,8 +39,8 @@ export default function Home ()
             </div>
 
           </div>
-      ) } */}
-      <div className="body_img">
+      ) }
+      {/* <div className="body_img">
         <LandingNav />
         <Hero />
         <Tokens />
@@ -49,7 +49,7 @@ export default function Home ()
           <Footer />
         </div>
         
-      </div>
+      </div> */}
       
     </div>
   )

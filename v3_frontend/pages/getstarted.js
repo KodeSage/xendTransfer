@@ -14,27 +14,32 @@ export default function getstarted ()
         setTimeout( () => setLoading( false ), 6000 );
     } );
     return (
+<>
+            { loading ?
+                <SplashScreen />
+                :
+                <div className="body_img">
+                    <div className="body_container">
+                        <div className="flex justify-between">
+                            <Logo />
+                            <div>
+                                { account &&
+                                    <DisconnectWallet />
+                                }
+                            </div>
+                        </div>
+                        { account ? (
+                            <SignupForm />
+                        ) : (
+                            <Connectform />
+                        )
+                        }
 
-        <div className="body_img">
-            <div className="body_container">
-                <div className="flex justify-between">
-                    <Logo />
-                    <div>
-                        { account && 
-                            <DisconnectWallet />
-                        }  
                     </div>
-                </div>
-                { account ? (
-                    <SignupForm />
-                ) : (
-                    <Connectform />
-                )
-                }
 
-            </div>
-            
-        </div>
+                </div>
+            }
+</>
 
     );
 

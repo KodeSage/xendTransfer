@@ -15,6 +15,7 @@
     "@xend-finance/web-sdk": "^0.2.2",
     "dotenv": "^16.0.0",
     "ethers": "^5.6.4",
+    "firebase": "^9.8.1",
     "next": "12.1.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

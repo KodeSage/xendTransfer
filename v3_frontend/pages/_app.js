@@ -32,14 +32,14 @@ const config = {
 function MyApp({ Component, pageProps }) {
 
   return (
-    <>
+    <Provider >
       <ToastContainer transition={ Zoom } position="top-center" autoClose={ 3000 } />
       <DAppProvider config={ config }>
         <AppProvider>
           <Component { ...pageProps } />
         </AppProvider>
       </DAppProvider>
-    </>
+    </Provider>
 
   );
 }
