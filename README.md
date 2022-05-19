@@ -32,9 +32,9 @@
   - @openzeppelin/contracts
   - ethereum-waffle
   
-    ### Database Tools
-    - firebase
-    - firestore
+   ### Database Tools
+   - firebase
+   - firestore
    
 
   
