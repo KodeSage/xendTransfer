@@ -96,7 +96,9 @@ export function Signup (username, email, password )
     };
 }
 
-export function RegisterUser(username, email, password) {
+export function Signin ( email, password )
+{
+    
     return {
         type: 'LOGIN_USER',
         user: {
