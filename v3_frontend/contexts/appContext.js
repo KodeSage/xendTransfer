@@ -26,6 +26,7 @@ export function AppProvider ( { children } )
 {
     const { account, activate, deactivate, error } = useEthers();
     const [ activateError, setActivateError ] = useState( '' );
+    const [ navIsOpen, setNavIsOpen ] = useState( false )
    
     useEffect( () =>
     {
@@ -98,7 +99,9 @@ export function AppProvider ( { children } )
                 activateProvider,
                 onDisconnect,
                 activateError,
-                account
+                account,
+                navIsOpen,
+                setNavIsOpen
             } }
         >
             { children }

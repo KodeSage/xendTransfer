@@ -1,4 +1,6 @@
 require( "@nomiclabs/hardhat-waffle" );
+require( "@nomiclabs/hardhat-truffle5" );
+
 require( 'dotenv' ).config();
 
 const { API_URL, PRIVATE_KEY } = process.env;
@@ -23,8 +25,13 @@ task( "accounts", "Prints the list of accounts", async ( taskArgs, hre ) =>
  */
 module.exports = {
   solidity: "0.8.4",
-  defaultNetwork: "rinkeby",
+  defaultNetwork: "hardhat",
   networks: {
+    hardhat: {
+    },
+    localhost: {
+      url: "http://localhost:8545",
+    },
     rinkeby: {
       url: API_URL,
       accounts: [ PRIVATE_KEY ]
