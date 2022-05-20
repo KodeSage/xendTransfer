@@ -3,9 +3,11 @@ import formstyle from './forms.module.css';
 import Link from 'next/link';
 
 
+
 export default function Signupform ()
 {
   const [ passwordView, setPasswordView ] = useState( false );
+
   const togglePassword = () =>
   {
     setPasswordView( !passwordView );
