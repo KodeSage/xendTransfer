@@ -1,12 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import formstyle from './forms.module.css';
 import Link from 'next/link';
+import { useSelector, useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import { useAppContext } from '../../contexts/appContext';
+import { Signup } from '../../stores/actions/authAction';
+import { toast } from "react-toastify";
+import { createBankContract } from '../../utilis/bank';
+
 
 
 
 export default function Signupform ()
 {
+  const { account } = useAppContext();
+  const msg = useSelector( ( state ) => state.message );
+  const dispatch = useDispatch();
+  const router = useRouter();
+
   const [ passwordView, setPasswordView ] = useState( false );
+  const [ state, setState ] = useState ( {
+    email: '',
+    username: '',
+    password: '',
+    user_address: '',
+  } );
+
+  const getAccounts = () =>
+  {
+    setState( {
+      ...state,
+      user_address: account,
+    } );
+  }
+
+  useEffect( () =>
+  {
+    getAccounts();
+  }, [] );
+
+  const onCreate = async(e) =>
+  {
+    e.preventDefault();
+    dispatch(
+      Signup( state, async () =>
+      {
+        try
+        {
+          const bank = createBankContract();
+          await bank.createAccountRequest( state.username );
+          toast.success( 'Account created successfully', msg );
+          router.push( '/login' );
+          
+        } catch ( error )
+        {
+          toast.error( error.message, msg );
+        }  
+      } )
+    );
+  }
 
   const togglePassword = () =>
   {
@@ -17,17 +69,46 @@ export default function Signupform ()
       <div className="max-w-lg w-full space-y-8">
         <div className={ formstyle.bg }>
           <div className={ formstyle.fwhite }>
-            <form>
+            <form onSubmit={onCreate}>
               <h3 className={ formstyle.h3 }>CREATE AN ACCOUNT</h3>
               <div className={ formstyle.inputs }>
-                <input placeholder="UserName" type="text" required />
+                <input placeholder="UserName" type="text"
+                  value={ state.username }
+                  onChange={ ( e ) =>
+                    setState( {
+                      ...state,
+                      username: e.target.value,
+                    } )
+                  }
+                  required />
               </div>
               <div className={ formstyle.inputs }>
-                <input placeholder="Email" type="email" required />
+                <input placeholder="Email" type="email"
+                  value={ state.email }
+                  onChange={ ( e ) =>
+                    setState( {
+                      ...state,
+                      email: e.target.value,
+                    } )
+                  }
+                  required />
+              </div>
+              <div className={ formstyle.inputs }>
+                <input placeholder="User Address" type="text"
+                  disabled
+                  value={ state.user_address }
+                  required />
               </div>
               <div className={ formstyle.inputs }>
                 <input placeholder="Password"
                   type={ passwordView ? "text" : "password" }
+                  value={ state.password }
+                  onChange={ ( e ) =>
+                    setState( {
+                      ...state,
+                      password: e.target.value,
+                    } )
+                  }
                   required
                 />
 
@@ -42,7 +123,7 @@ export default function Signupform ()
                 <Link href="login">
                   <h2 className={ formstyle.b_h2 }>Login</h2>
                </Link>
-                <button className={ formstyle.button }>Sign Up</button>
+                <button type='submit'className={ formstyle.button }>Sign Up</button>
               </div>
             </form>
           </div>

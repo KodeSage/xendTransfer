@@ -12,16 +12,15 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 
 import '../styles/globals.css';
 import { AppProvider } from "../contexts/appContext";
-
 import { getDefaultProvider } from 'ethers';
 
 const config = {
   readOnlyChainId: Mainnet.chainId,
   readOnlyUrls: {
-    [ Mainnet.chainId ]: process.env.MAINNET || getDefaultProvider( 'mainnet' ),
-    [ Ropsten.chainId ]: process.env.ROPSTEN || getDefaultProvider( 'ropsten' ),
-    [ Kovan.chainId ]: process.env.KOVAN || getDefaultProvider( 'kovan' ),
-    [ Rinkeby.chainId ]: process.env.RINKEBY || getDefaultProvider( 'rinkeby' ),
+    [ Mainnet.chainId ]:  getDefaultProvider( 'mainnet' ),
+    // [ Ropsten.chainId ]:  getDefaultProvider( 'ropsten' ),
+    [ Kovan.chainId ]:  getDefaultProvider( 'kovan' ),
+    [ Rinkeby.chainId ]: getDefaultProvider( 'rinkeby' ),
   },
 }
 const rootReducer = combineReducers( {

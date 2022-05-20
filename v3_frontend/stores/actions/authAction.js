@@ -45,46 +45,50 @@ async function checkUser ( username )
     }
 }
 
-export function Signup (username, email, password )
-{
+export function Signup (state, cb )
+{ 
+    
     return async ( dispatch) =>
     {
         try
         {
-            
-            const existingUser = await checkUser( username );
+            console.log( state);
+            const existingUser = await checkUser( state.username );
             if ( existingUser )
             {
                 throw new Error(
-                    `Please use another username ${username } has been used by another user`
+                    `Please use another username ${state.username } has been used by another user`
                 );
             }
             const res = await createUserWithEmailAndPassword(
                 auth,
-                email,
-                password
+                state.email,
+                state.password
             );
             const user = res.user;
+            console.log( user );
+            console.log( res );
             await setDoc( doc( firestore, 'users', user.uid ), {
                 uid: user.uid,
-                username: username,
-                email: email,
-                userAddress: userAddress,
+                username: state.username,
+                email: state.email,
+                userAddress: state.user_address,
                 emailVerified: user.emailVerified,
                 role: 'user',
-                accountAddress: acctAddress ? acctAddress : null
+                accountAddress: null
             } );
+            cb();
         
             dispatch( {
                 type: 'LOGIN_USER',
                 payload: {
                     user: {
-                        username: username,
-                        email: email,
+                        username: state.username,
+                        email: state.email,
                         uid: user.uid,
                         role: 'user',
-                        userAddress: userAddress,
-                        accountAddress: acctAddress ? acctAddress : null,
+                        userAddress: state.user_address,
+                        accountAddress: null,
                         emailVerified: user.emailVerified,
 
                     },
@@ -93,6 +97,7 @@ export function Signup (username, email, password )
             } );
         } catch ( error )
         {
+            console.log("ERROR: "+error)
             dispatch( {
                 type: 'SET_MESSAGE',
                 payload: {
@@ -103,49 +108,31 @@ export function Signup (username, email, password )
     };
 }
 
-export function Signin ( email, password )
+export function Signin (state, cb )
 {
     return async ( dispatch ) =>
     {
         try
         {
-            let users = [];
+          
             const res = await signInWithEmailAndPassword(
                 auth,
-                email,
-                password
+                state.email,
+                state.password
             );
             const user = res.user;
-            const doc = await getDoc( userCol, user.uid );
-            if (doc.empty)
-            {
-                throw new Error(
-                    `User does not exist`
-                );
-            }
-            doc.forEach( ( data ) =>
-            {
-                users.push(
-                    data.data().uid,
-                    data.data().username,
-                    data.data().email,
-                    data.data().emailVerified,
-                    data.data().userAddress,
-                    data.data().role === 0 ? 'admin' : 'user',
-                    data.data().accountAddress ? data.data().acctAddress : undefined,
-                )
-            } );
+
+            const fetchedUser  = await getUserFromDB( user.uid );
+            cb();
            
             dispatch( {
                 type: 'LOGIN_USER',
                 payload: {
-                    user: users[ 0 ],
-                    message: 'Signup Success',
+                    user: fetchedUser,
+                    message: 'SignIn Success',
                 }
             } );
-
-         return users[ 0 ];
-            
+    
         } catch(error) {
             dispatch( {
                 type: 'SET_MESSAGE',
@@ -157,8 +144,70 @@ export function Signin ( email, password )
     }
     
 }
+const getUserFromDB = async(uid) =>
+{
+    
+    try
+    {
+        let users = [];
+        
+        const customerQuery = query( userCol, where( 'uid', '==', uid ) )
+        const fetchedDoc = await getDocs( customerQuery )
+        if ( fetchedDoc.empty )
+        {
+            throw new Error( 'User does not exist' )
+        }
 
+        fetchedDoc.forEach( data =>
+        {
+            users.push( {
+                uid: data.data().uid,
+                username: data.data().username,
+                email: data.data().email,
+                userAddress: d.data().userAddress,
+                role: data.data().role,
+                acctAddress: data.data().acctAddress,
+                emailVerified: data.data().emailVerified,
+            } )
+        } );
+        let user = users[0];
+        return user;
+    } catch(error)
+    {
+        throw error
+    }
+    
+}
 
+export function autoLogin ( uid )
+{
+    return async ( dispatch ) =>
+    {
+        try
+        {
+
+            const fetchedUser = await getUserFromDB( uid );
+            dispatch( {
+                type: 'LOGIN_USER',
+                payload: {
+                    user: fetchedUser,
+                    message: 'Signup Success',
+                }
+            } );
+            
+        }
+        catch ( error )
+        {
+            dispatch( {
+                type: 'SET_MESSAGE',
+                payload: {
+                    message: error.message,
+                },
+            } );
+            
+        }
+    }
+}
 
 export function Logout()
 {
