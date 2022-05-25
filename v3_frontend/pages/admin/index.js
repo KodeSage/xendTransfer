@@ -5,14 +5,16 @@ import { autoLogin, Logout } from '../../stores/actions/authAction';
 import Layout from '../../layout/Layout';
 import { useRouter } from 'next/router';
 
-export default function Customers ()
+
+export default function Dashboard ()
 {
+  // const msg = useSelector( ( state ) => state.auth.message );
   const user = useSelector( ( state ) => state.auth.user );
 
   const { account } = useAppContext();
   const dispatch = useDispatch();
   const router = useRouter();
-  console.log( 'User Login o', user )
+   console.log( 'User Login o', user )
 
   useEffect( () =>
   {
@@ -46,11 +48,24 @@ export default function Customers ()
     }
 
   }, [] );
+  
+  const handleLogout = () =>
+  {
+    dispatch( Logout(
+      () =>
+      {
+        
+        router.push( '/login' );
+        localStorage.removeItem('userId');
+      }
+    ) );
+  }
 
   return (
+
       <div className="body_img">
-      <Layout user={ user }>
-        aslkjassajlja
+      <Layout user={user}>
+        <button onClick={handleLogout}>IOjlsxjjs</button>
       </Layout>
       </div>
   )

@@ -34,14 +34,14 @@ export default function Tokens() {
                       <Fade top>
                           <TokenCard name="SomToken"
                               images="./somtokenimage.png"
-                              address="0x3597F939ba10B620762C36ffb401DF509F91F1d8"
+                              address="0x5c166b22465ca885c4c172120654E7D60006715F"
                               symbol="SOM"
                           />
                       </Fade>
                       <Fade top>
                           <TokenCard name="HarToken"
                               images="./hartokenimage.png"
-                              address="0xD1CeeDF1Fbc453132667BddAb3eA7BbA9d9554bB"
+                              address="0xbEd3aFc934E085F29B7114b81aC529E3D95E9EC8"
                               symbol="HAR"
                           />
                       </Fade>
@@ -50,7 +50,7 @@ export default function Tokens() {
                           <TokenCard
                               name="JamToken"
                               images="./somtokenimage.png"
-                              address="0xeF36F3987E96c40620461586659695f73fCfa823"
+                              address="0xB01E8461Ec9E7896E874767a2d0a6421a4D534dD"
                               symbol="JAM"
                           />
                       </Fade>

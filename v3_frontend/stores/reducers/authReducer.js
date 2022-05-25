@@ -1,5 +1,5 @@
 const initialState = {
-    user: null,
+    user: undefined,
     message: null,
 }
 
@@ -16,7 +16,7 @@ export default function authReducer( state = initialState, action )
         case 'LOGOUT_USER':
             return {
                 ...state,
-                user: null
+                user: action.payload.user
             }
         case 'SET_MESSAGE':
             return {

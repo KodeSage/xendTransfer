@@ -2,7 +2,7 @@ import { ethers } from "ethers";
 import Bankabi from "../utilis/migrations/Bank.json";
 
 
-const BankAddress = "0x4f9eCd5977112b4721d53beAce1Ebd74fAE03A9A";
+const BankAddress = "0x6F145Ab2E9ec70AeB941400dADCCA75DaAeEF4eA";
 const BankAbi = Bankabi.abi;
 
 

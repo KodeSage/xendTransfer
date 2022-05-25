@@ -1,7 +1,7 @@
 import { Mainnet, DAppProvider, Ropsten, Kovan, Rinkeby } from '@usedapp/core'
 import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "tailwindcss/tailwind.css";
+// import "tailwindcss/tailwind.css";
 import '../firebase-config';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'

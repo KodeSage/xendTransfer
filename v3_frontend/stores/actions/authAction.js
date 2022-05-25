@@ -1,22 +1,22 @@
 import
- {
-      doc,
-        getDocs,
-        setDoc,
-        getFirestore,
-        collection,
-        query,
-        where,
-        getDoc,
+{
+    doc,
+    getDocs,
+    setDoc,
+    getFirestore,
+    collection,
+    query,
+    where,
+    getDoc,
 } from 'firebase/firestore';
 
-import { getApp} from 'firebase/app';
+import { getApp } from 'firebase/app';
 import
-    {
-        getAuth,
-        createUserWithEmailAndPassword,
-        signInWithEmailAndPassword,
-        signOut,
+{
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
 } from 'firebase/auth';
 
 const app = getApp();
@@ -28,7 +28,6 @@ const firestore = getFirestore( app );
 const userCol = collection( firestore, 'users' );
 
 async function checkUser ( username )
-
 {
     try
     {
@@ -45,19 +44,19 @@ async function checkUser ( username )
     }
 }
 
-export function Signup (state, cb )
-{ 
-    
-    return async ( dispatch) =>
+export function Signup ( state, cb )
+{
+
+    return async ( dispatch ) =>
     {
         try
         {
-            console.log( state);
+            console.log( state );
             const existingUser = await checkUser( state.username );
             if ( existingUser )
             {
                 throw new Error(
-                    `Please use another username ${state.username } has been used by another user`
+                    `Please use another username ${ state.username } has been used by another user`
                 );
             }
             const res = await createUserWithEmailAndPassword(
@@ -66,7 +65,7 @@ export function Signup (state, cb )
                 state.password
             );
             const user = res.user;
-            console.log( user );
+
             console.log( res );
             await setDoc( doc( firestore, 'users', user.uid ), {
                 uid: user.uid,
@@ -78,7 +77,7 @@ export function Signup (state, cb )
                 accountAddress: null
             } );
             cb();
-        
+
             dispatch( {
                 type: 'LOGIN_USER',
                 payload: {
@@ -97,34 +96,36 @@ export function Signup (state, cb )
             } );
         } catch ( error )
         {
-            console.log("ERROR: "+error)
+            console.log( "ERROR: " + error )
             dispatch( {
                 type: 'SET_MESSAGE',
                 payload: {
-                    message : error.message,
+                    message: error.message,
                 },
             } );
         }
     };
 }
 
-export function Signin (state, cb )
+export function Signin ( state, cb )
 {
     return async ( dispatch ) =>
     {
         try
         {
-          
+
             const res = await signInWithEmailAndPassword(
                 auth,
                 state.email,
                 state.password
             );
             const user = res.user;
+            console.log( user );
+            const fetchedUser = await getUserFromDB( user.uid );
 
-            const fetchedUser  = await getUserFromDB( user.uid );
             cb();
-           
+
+
             dispatch( {
                 type: 'LOGIN_USER',
                 payload: {
@@ -132,8 +133,9 @@ export function Signin (state, cb )
                     message: 'SignIn Success',
                 }
             } );
-    
-        } catch(error) {
+
+        } catch ( error )
+        {
             dispatch( {
                 type: 'SET_MESSAGE',
                 payload: {
@@ -142,17 +144,18 @@ export function Signin (state, cb )
             } );
         }
     }
-    
+
 }
-const getUserFromDB = async(uid) =>
+const getUserFromDB = async ( uid ) =>
 {
-    
+
     try
     {
         let users = [];
-        
+
         const customerQuery = query( userCol, where( 'uid', '==', uid ) )
         const fetchedDoc = await getDocs( customerQuery )
+        console.log( fetchedDoc )
         if ( fetchedDoc.empty )
         {
             throw new Error( 'User does not exist' )
@@ -164,22 +167,23 @@ const getUserFromDB = async(uid) =>
                 uid: data.data().uid,
                 username: data.data().username,
                 email: data.data().email,
-                userAddress: d.data().userAddress,
+                userAddress: data.data().userAddress,
                 role: data.data().role,
-                acctAddress: data.data().acctAddress,
+                accountAddress: data.data().accountAddress,
                 emailVerified: data.data().emailVerified,
             } )
         } );
-        let user = users[0];
+        let user = users[ 0 ];
         return user;
-    } catch(error)
+    } catch ( error )
     {
+        console.log( "ERROR: " + error.message )
         throw error
     }
-    
+
 }
 
-export function autoLogin ( uid )
+export function autoLogin ( uid, cb )
 {
     return async ( dispatch ) =>
     {
@@ -194,24 +198,26 @@ export function autoLogin ( uid )
                     message: 'Signup Success',
                 }
             } );
-            
+            cb( fetchedUser );
+            // console.log( cb( fetchedUser ) );
         }
         catch ( error )
         {
+            cb( undefined );
             dispatch( {
                 type: 'SET_MESSAGE',
                 payload: {
                     message: error.message,
                 },
             } );
-            
+
         }
     }
 }
 
-export function Logout()
+export function Logout (cb)
 {
-    return async ( dispatch) =>
+    return async ( dispatch ) =>
     {
         try
         {
@@ -220,10 +226,11 @@ export function Logout()
                 type: 'LOGOUT_USER',
                 payload: {
                     user: undefined,
-                    message:  'You have logout of your wallet',
+                    message: 'You have logout of your wallet',
                 },
             } );
-        } catch(error)
+            cb();
+        } catch ( error )
         {
             dispatch( {
                 type: 'SET_MESSAGE',
@@ -231,8 +238,7 @@ export function Logout()
                     message: error.message,
                 },
             } );
-            
+
         }
     }
-    
 }

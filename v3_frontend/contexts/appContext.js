@@ -26,7 +26,18 @@ export function AppProvider ( { children } )
 {
     const { account, activate, deactivate, error } = useEthers();
     const [ activateError, setActivateError ] = useState( '' );
-    const [ navIsOpen, setNavIsOpen ] = useState( false )
+    const [ navIsOpen, setNavIsOpen ] = useState( false );
+
+    function toggleSidebar ()
+    {
+        setNavIsOpen( !navIsOpen )
+    }
+
+    function closeSidebar ()
+    {
+     setNavIsOpen ( false )
+    }
+
    
     useEffect( () =>
     {
@@ -101,7 +112,9 @@ export function AppProvider ( { children } )
                 activateError,
                 account,
                 navIsOpen,
-                setNavIsOpen
+                toggleSidebar,
+                closeSidebar
+
             } }
         >
             { children }

@@ -37,7 +37,7 @@ export default function Signupform ()
   useEffect( () =>
   {
     getAccounts();
-  }, [] );
+  }, [msg] );
 
   const onCreate = async(e) =>
   {
